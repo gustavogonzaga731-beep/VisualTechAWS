@@ -1,0 +1,49 @@
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 80px;
+}
+
+.logo {
+  height: 800px;
+}
+
+.navbar {
+    padding: 2.5rem 3.125rem !important;
+}
+
+.navbar-brand {
+  color: black !important;
+  &:hover{
+    color: #000 !important;
+  }
+}
+
+.other-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.carrinho {
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+
+  a:hover {
+    color: var(--hover-primary);
+  }
+
+  &:hover {
+    svg path {
+      fill: var(--hover-primary);
+      transition: fill 0.3s;
+      cursor: pointer;
+    }
+  }
+}
+
+a:hover{
+  color: var(--hover-color-text-primary);
+}

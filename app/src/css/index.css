@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+:root {
+    --bg-body: #FFFFFF;
+    --bg-header: #F8F9FA;
+    --bg-footer: #343434;
+
+    --bg-button-primary: #ADD8E6;
+    --bg-button-secondary: #007BFF;
+    --bg-button-tertiary: #8B8B8C;
+
+    --stroke: #000000;
+
+    --hover-primary: #4A4A4B;
+    --hover-secondary: #CF8E10;
+    --hover-tertiary: #0069D9;
+
+    --color-text-primary: #8B8B8C;
+    --hover-color-text-primary: #3e4e4e;
+    --color-text-secondary: black;
+
+    --font: "Roboto", sans-serif, system-ui;
+    --font-weight-base: 400;
+    --font-weight-md: 500;
+    --font-weight-bold: 800;
+
+    --fs-sm: 0.875rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.25rem;
+    --fs-xl: 1.5rem;
+    --fs-2xl: 2.5rem;
+
+    --M-fs-2xl: normal var(--font-weight-bold) var(--fs-2xl) var(--font);
+    --M-fs-xl: normal var(--font-weight-bold) var(--fs-xl) var(--font);
+    --M-fs-lg: normal var(--font-weight-bold) var(--fs-lg) var(--font);
+    --M-fs-sm: normal var(--font-weight-md) var(--fs-sm) var(--font);
+    --M-fs-base: normal var(--font-weight-md) var(--fs-base) var(--font);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+a{
+    color: var(--color-text-primary) !important;
+}
+
+html{
+    font-family: var(--font);
+    font-weight: var(--font-weight-base);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color-primary);
+}
+
+body{
+    background-color: var(--background-color);
+    color: var(--color-text-primary);
+    padding-top: 80px;
+    &  > section {
+        padding-top: 80px;
+    }
+}
+
+
+@media (width >= 80em){
+    :root{
+        --M-fs-2xl: var(--font-weight-bold) 4rem var(--font);
+        --M-fs-xl: var(--font-weight-bold) 3rem var(--font);
+        --M-fs-lg: var(--font-weight-md) 1.6rem var(--font);
+        --padd-lg: 2rem;
+
+        --py-base: 1.5rem;   
+        --py-lg: 2.5rem; 
+    }
+    
+}
+
+
+
+.btn-primary {
+    background-color: #34343400;
+    color: #747171 !important;
+    border-color: #007bff !important;
+    transition: .3s ease-in;
+    &:hover {
+        background-color: #007bff;
+        color: #fff !important;
+    }
+}
+
+ul[role="list"]{
+    list-style: none;
+}
+
+h1,
+h2,
+h3{
+    color: var(--text-color-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+h1{
+    font: var(--M-fs-2xl);
+}
+
+h2{
+    font: var(--M-fs-xl);
+}
+
+h5{
+    font: var(--M-fs-lg);
+}
+

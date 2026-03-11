@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <link rel="stylesheet" href="src/styles/header.css">
+    <link rel="stylesheet" href="src/styles/home.css">
+    <link rel="stylesheet" href="src/styles/produtos.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Visual tech</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <i class="fa-solid fa-gamepad" id="nav_logo">visual tech</i>
+
+            <ul id="nav_list">
+               <li class="nav_item active">
+                   <a href="">Início</a>
+               </li>
+               <li class="nav_item">
+                <a href="./produtos.php" target="_blank">Produtos</a>
+            </li>
+            <li class="nav_item">
+                <a href="./src/components/vendedores.php">Vendedores</a>
+            </li>
+            </ul>
+
+            <button class="btn-default">
+                <a href="./produtos.php" target="_blank"><i class="fa-solid fa-cart-shopping">comprar</i> </a>
+            </button>
+
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav_item">
+                    <a href="home">Início</a>
+                </li>
+                <li class="nav_item">
+                 <a href="produtos">Produtos</a>
+             </li>
+             <li class="nav_item">
+                 <a href="vendedores">Vendedores</a>
+             </li>
+             </ul>
+
+            <button class="btn-default">
+                <a href="./produtos.php" target="_blank"><i class="fa-solid fa-cart-shopping">comprar</i> </a>
+            </button>
+        </div>
+    </header>
+    <main id="content">
+       <section id="home">
+        <div class="shape"></div>
+            <div id="cta">
+               <h1 class="title">
+                Transforme sua rotina com os melhores eletrônicos.
+               </h1>
+               
+               <p class="description">
+                Bem-vindo ao nosso site, onde a inovação encontra a qualidade! Aqui você encontra uma seleção dos melhores eletrônicos, com as últimas novidades e as marcas mais confiáveis do mercado. Seja para melhorar seu desempenho no trabalho, garantir entretenimento de alta qualidade ou facilitar seu dia a dia, temos o produto ideal para você. Navegue e descubra o futuro da tecnologia, agora ao seu alcance!
+                </p>
+
+                <div id="cta_buttons">
+                    <a href="./produtos.php" target="_blank" class="btn-default">
+                        Ver produtos
+                    </a>
+            
+                    <a href="https://wa.me/5521967845008" target="_blank" id="phone_button">
+                        <button class="btn-default">
+                            <i class="fa-solid fa-phone"> contato </i>
+                        </button>
+                        (21) 96784-5008
+                    </a>
+
+            </div>
+            
+            <div class="social-media-buttons">
+                <a href="">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+            <div id="banner">
+                <img src="src/assets/images/eletrônicos.jpeg" alt="">
+
+            </div>
+       </section>  
+
+       <h2 class="section-title" style="text-align: center; margin: 4rem 0 4rem;">Seleções de produtos para você</h2>
+
+
+       <section id="products">
+            
+        <div>
+            <div>
+                <div class="dishes">
+                    <div class="dish">
+                        <div class="dish-heart">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                 <img src="src/assets/images/iphone 15.jpeg" class="dish-image" alt="">
+        
+                 <h3 class="dish-title">
+                    Apple iPhone 15 128GB Preto 
+                    6,1" 48MP iOS 5G
+                </h3>
+        
+                <div class="dish-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span>5.0 (847)</span>
+                 </div>
+        
+                <div class="dish-price">
+                    <h4>R$ 5.299,00</h4>
+                    <button class="btn-default">
+                        <a href="./produtos.php" target="_blank"><i class="fa-solid fa-cart-shopping">comprar</i></a>
+                    </button>
+                    </div>
+        </div>
+
+                <div class="dishes">
+                <div class="dish">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+            <img src="src/assets/images/pc gamer.jpeg" class="dish-image" alt="">
+    
+            <h3 class="dish-title">
+                PC Gamer Completo 3green Join Intel Core i7 16GB RAM Placa de vídeo Geforce GTX 1660 Ti 6GB SSD 256GB Fonte 500W + Monitor 24" 75Hz 3GJ-091
+           </h3>
+    
+           <div class="dish-rate">
+               <i class="fa-solid fa-star"></i>
+               <i class="fa-solid fa-star"></i>
+               <i class="fa-solid fa-star"></i>
+               <i class="fa-solid fa-star"></i>
+               <span>4.9 (747)</span>
+            </div>
+    
+           <div class="dish-price">
+               <h4>R$ 4.449,99</h4>
+               <button class="btn-default">
+                   <a href="./produtos.php" target="_blank"><i class="fa-solid fa-cart-shopping">comprar</i></a>
+           </div>
+        </div>
+
+        <div>
+            <div class="dishes">
+                <div class="dish">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+        
+               <img src="src/assets/images/alexa.jpeg" class="dish-image" alt="">
+        
+               <h3 class="dish-title">
+                Smart Speaker Amazon Echo Dot 4ª Geração com Alexa – Preto
+              </h3>
+        
+              <div class="dish-rate">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <span>4.7 (507)</span>
+               </div>
+        
+              <div class="dish-price">
+                  <h4>R$ 299,00</h4>
+                  <button class="btn-default">
+                      <a href="./produtos.php" target="_blank"><i class="fa-solid fa-cart-shopping">comprar</i></a>
+              </div>
+        
+        </div>
+
+       <div>
+        <div class="dishes">
+            <div class="dish">
+                <div class="dish-heart">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+           
+          <img src="src/assets/images/câmera.jpeg" class="dish-image" alt="">
+    
+          <h3 class="dish-title">
+            Câmera Canon Eos Rebel T7+ Com Lente Ef-s 18-55mm + Nf-e
+         </h3>
+    
+         <div class="dish-rate">
+             <i class="fa-solid fa-star"></i>
+             <i class="fa-solid fa-star"></i>
+             <i class="fa-solid fa-star"></i>
+             <i class="fa-solid fa-star"></i>
+             <i class="fa-solid fa-star"></i>
+             <span>5.0 (900)</span>
+          </div>
+    
+         <div class="dish-price">
+             <h4>R$ 4.488</h4>
+             <button class="btn-default">
+                 <a href="./produtos.php" target="_blank"><i class="fa-solid fa-cart-shopping">comprar</i></a>
+         </div>   
+       </div>
+      
+
+     <div>
+         <div class="dishes">
+            <div class="dish">
+                <div class="dish-heart">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+         <img src="src/assets/images/apple watch.jpeg" class="dish-image" alt="">
+         <h3 class="dish-title">
+            Apple Watch Series 9 GPS Caixa Estelar de Alumínio 45mm Pulseira Esportiva Estelar M/G
+             </h3>
+         
+             <div class="dish-rate">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <span>5.0 (900)</span>
+         </div>
+         
+             <div class="dish-price">
+            <h4>R$ 3.488,00</h4>
+            <button class="btn-default">
+                <a href="./produtos.php" target="_blank"><i class="fa-solid fa-cart-shopping">comprar</i></a>
+     </div>
+     
+    </div>   
+ 
+    <div class="dishes">
+        <div class="dish">
+            <div class="dish-heart">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+
+    <img src="src/assets/images/macbook.jpeg" class="dish-image" alt="">
+
+    <h3 class="dish-title">
+        Apple Macbook Air 15” M3 16GB RAM 512GB SSD - Cinza-espacial
+   </h3>
+
+   <div class="dish-rate">
+       <i class="fa-solid fa-star"></i>
+       <i class="fa-solid fa-star"></i>
+       <i class="fa-solid fa-star"></i>
+       <i class="fa-solid fa-star"></i>
+       <i class="fa-solid fa-star"></i>
+       <span>5.0 (910)</span>
+    </div>
+
+   <div class="dish-price">
+       <h4>R$ 29.717,61</h4>
+       <button class="btn-default">
+           <a href="./produtos.php" target="_blank"><i class="fa-solid fa-cart-shopping">comprar</i></a>
+   </div>   
+     </main>
+    <script src="src/javascript/script.js"></script>
+</body>
+</html>

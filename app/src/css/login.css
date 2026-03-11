@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    font-size: 1rem; /* Base de 16px */
+}
+
+.login-container {
+    background: #fff;
+    padding: 1.25rem; /* 20px convertido para rem */
+    margin: 1.2rem;
+    border-radius: 0.5rem; /* 8px convertido para rem */
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* 10px convertido para rem */
+}
+
+.login-container h2 {
+    margin-top: 0;
+}
+
+.login-container label {
+    display: block;
+    margin: 0.625rem 0 0.3125rem; /* 10px e 5px convertidos para rem */
+}
+
+.login-container input {
+    width: 100%;
+    padding: 0.5rem; /* 8px convertido para rem */
+    margin-bottom: 0.625rem; /* 10px convertido para rem */
+    border: 0.0625rem solid #ccc; /* 1px convertido para rem */
+    border-radius: 0.25rem; /* 4px convertido para rem */
+}
+
+.login-container button {
+    width: 100%;
+    padding: 0.625rem; /* 10px convertido para rem */
+    background: #000000;
+    border: none;
+    color: white;
+    font-size: 1rem; /* 16px convertido para rem */
+    border-radius: 0.25rem; /* 4px convertido para rem */
+    cursor: pointer;
+    margin-bottom: 0.625rem; /* 10px convertido para rem */
+}
+
+.login-container button:hover {
+    background: #000000c4;
+}
+
+.login-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+.user-info {
+    position: absolute;
+    top: 0.625rem; /* 10px convertido para rem */
+    right: 1.25rem; /* 20px convertido para rem */
+    font-size: 0.875rem; /* 14px convertido para rem */
+}

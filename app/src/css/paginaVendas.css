@@ -1,0 +1,50 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    gap: 20px !important;
+}
+
+.container button{
+    background-color: lightblue;
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.div_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section2 h5{
+    text-align: center;
+    width: 18.75rem;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+iframe{
+    margin-top: 200px !important;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+}
+
+.div_btn{
+    background-color: lightblue;
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 50px !important;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
