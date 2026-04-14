@@ -1,0 +1,18 @@
+# Credenciais
+.env
+
+# Uploads de usuários
+uploads/
+
+# Backup do MySQL Workbench
+*.mwb
+*.mwb.bak
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp

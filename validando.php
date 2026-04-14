@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validação</title>
 </head>
-
+ 
 <body>
-
+ 
 <header>Visual Tech</header>
-
+ 
 <style> 
 body {
     font-family: Arial, sans-serif;
@@ -23,7 +23,7 @@ body {
     height: 100vh;
     flex-direction: column; 
 }
-
+ 
 header {
     font-size: 48px; 
     font-weight: bold;
@@ -31,7 +31,7 @@ header {
     text-align: center;
     margin-bottom: 20px; 
 }
-
+ 
 form {
     background-color: #ffffff; 
     padding: 20px;
@@ -41,14 +41,14 @@ form {
     max-width: 400px;
     box-sizing: border-box;
 }
-
+ 
 label {
     display: block;
     font-weight: bold;
     margin-bottom: 8px;
     color: #333; 
 }
-
+ 
 select, input[type="submit"] {
     width: 100%;
     padding: 10px;
@@ -58,11 +58,11 @@ select, input[type="submit"] {
     font-size: 14px;
     box-sizing: border-box;
 }
-
+ 
 select {
     background-color: #f9f9f9; 
 }
-
+ 
 input[type="submit"] {
     background-color: #007bff; 
     color: #fff;
@@ -70,56 +70,58 @@ input[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
+ 
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
 </style>
-
+ 
+<?php
+    session_start();
+ 
+    // Garante que o usuário veio de um fluxo autenticado (tem e-mail na sessão)
+    if (empty($_SESSION['user_email'])) {
+        header('Location: login.php');
+        exit();
+    }
+ 
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/visual_tech/app/conn.php';
+ 
+    // Busca APENAS o nome da mãe do cliente logado, não de todos
+    $sql  = "SELECT maternal_name FROM clients WHERE user_email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $_SESSION['user_email']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $maternal_name_db = $row['maternal_name'] ?? null;
+?>
+ 
     <form action="" method="post">
-        <label for="maternal_name">Selecione o nome da mãe:</label>
-        <select id="maternal_name" name="maternal_name" required>
-            <?php
-                session_start();
-
-                include_once $_SERVER['DOCUMENT_ROOT'] . '/visual_tech/app/conn.php'; 
-
-                $sql = 'SELECT maternal_name FROM clients';
-                $stmt = $conn->prepare($sql);
-                $stmt->execute();
-                $result = $stmt->get_result();
-
-                while ($row = $result->fetch_assoc()) {
-                    echo '<option value="' . $row['maternal_name'] . '">' . $row['maternal_name'] . '</option>';
-                }
-            ?>
-        </select>
+        <label for="maternal_name">Digite o nome da sua mãe:</label>
+        <!-- CORRIGIDO: campo de texto livre em vez de select com todos os nomes do banco -->
+        <input type="text" id="maternal_name" name="maternal_name" required
+               placeholder="Nome completo da mãe"
+               style="width:100%;padding:10px;margin-bottom:15px;border:1px solid #ccc;border-radius:4px;font-size:14px;box-sizing:border-box;">
         <input type="submit" value="Confirmar">
     </form>
-
+ 
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $maternalName = $_POST['maternal_name'];
-
-        // Consulta SQL para verificar se o nome da mãe confirmado corresponde ao nome da mãe armazenado no banco de dados
-        $sql = "SELECT maternal_name, user_email, CPF FROM clients WHERE maternal_name = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $maternalName);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            // Nome da mãe confirmado corresponde ao nome da mãe armazenado no banco de dados
-            $_SESSION['maternal_name'] = $maternalName;
+        // CORRIGIDO: compara com o valor do banco, não busca pelo valor enviado
+        $maternalNameInput = trim($_POST['maternal_name'] ?? '');
+ 
+        if (!empty($maternal_name_db) && strtolower($maternalNameInput) === strtolower($maternal_name_db)) {
+            $_SESSION['validated'] = true;
             header('Location: user.php');
             exit();
         } else {
-            // Nome da mãe confirmado não corresponde ao nome da mãe armazenado no banco de dados
+            session_destroy();
             header('Location: login.php');
             exit();
         }
     }
     ?>
-
+ 
 </body>
 </html>
