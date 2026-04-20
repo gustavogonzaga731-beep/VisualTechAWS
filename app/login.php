@@ -35,7 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
         
-        if ($password === $user['pass_seller']) {
+        // Verifica senha com hash OU texto puro
+        if (password_verify($password, $user['pass_seller']) || $password === $user['pass_seller']) {
             $_SESSION['email'] = $email;
             $_SESSION['seller'] = $user['id_seller'];
             $_SESSION['name'] = $user['name_seller'];
