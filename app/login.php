@@ -1,10 +1,7 @@
 <?php
-// Inclui a conexão com o banco de dados
 include_once $_SERVER['DOCUMENT_ROOT'] . '/visual_tech/app/conn.php';
-
 session_start();
 
-// Função para redirecionar o usuário com base no cargo
 function redirecionarUsuario($cargo, $name_seller) {
     switch ($cargo) {
         case 'master':
@@ -22,20 +19,17 @@ function redirecionarUsuario($cargo, $name_seller) {
     }
 }
 
-// Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Obtém os dados do formulário
     $email = $_POST['email'];
     $password = $_POST['pass'];
 
-    // Consulta para verificar se é um vendedor
+    // Verifica vendedor
     $query = "SELECT * FROM sellers WHERE email_seller = '$email'";
-    $result = mysqli_query($conn, $query);
+    $result = $conn->query($query);
 
-    if (mysqli_num_rows($result) > 0) {
-        $user = mysqli_fetch_assoc($result);
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
         
-        // Verifica senha com hash OU texto puro
         if (password_verify($password, $user['pass_seller']) || $password === $user['pass_seller']) {
             $_SESSION['email'] = $email;
             $_SESSION['seller'] = $user['id_seller'];
@@ -43,23 +37,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             redirecionarUsuario($user['cargo_seller'], $user['name_seller']);
             exit();
         }
-    } else {
-        // Verifica se é um cliente
-        $query = "SELECT * FROM clients WHERE user_email = '$email'";
-        $result = mysqli_query($conn, $query);
+    } 
+    
+    // Verifica cliente
+    $query = "SELECT * FROM clients WHERE user_email = '$email'";
+    $result = $conn->query($query);
 
-        if (mysqli_num_rows($result) > 0) {
-            $client = mysqli_fetch_assoc($result);
-            if (password_verify($password, $client['pass'])) {
-                $_SESSION['email'] = $email;
-                $_SESSION['id_user'] = $client['id_user'];
-                redirecionarUsuario('client', $client['id_user']);
-                exit();
-            }
+    if ($result->num_rows > 0) {
+        $client = $result->fetch_assoc();
+        if (password_verify($password, $client['pass'])) {
+            $_SESSION['email'] = $email;
+            $_SESSION['id_user'] = $client['id_user'];
+            redirecionarUsuario('client', $client['id_user']);
+            exit();
         }
     }
+    
     echo "<script>alert('Usuário ou senha inválidos.');</script>";
-    mysqli_close($conn);
+    $conn->close();
 }
 ?>
 <!DOCTYPE html>
