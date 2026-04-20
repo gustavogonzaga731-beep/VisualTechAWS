@@ -115,7 +115,7 @@
 
         if ($pass === $c_pass) {
             $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO Clients (name_complete, gender, date_birth, maternal_name, cpf, user_email, user_cell, pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+         $sql = "INSERT INTO clients (name_complete, gender, date_birth, maternal_name, cpf, user_email, user_cell, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             if ($stmt = $conn->prepare($sql)) {
                 $stmt->bind_param("ssssssss", $name_complete, $gender, $date_birth, $maternal_name, $cpf, $user_email, $user_cell, $pass_hash);
                 if ($stmt->execute()) {
