@@ -99,38 +99,38 @@
             document.body.classList.toggle('high-contrast');
         }
     </script>
-    <?php
-    require_once './conn.php';
+<?php
+require_once 'conn.php';
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $name_complete = $_POST['name_complete'] ?? null;
-        $gender = $_POST['gender'] ?? null;
-        $date_birth = $_POST['date_birth'] ?? null;
-        $maternal_name = $_POST['maternal_name'] ?? null;
-        $cpf = $_POST['cpf'] ?? null;
-        $user_email = $_POST['user_email'] ?? null;
-        $user_cell = $_POST['user_cell'] ?? null;
-        $pass = $_POST['pass'] ?? null;
-        $c_pass = $_POST['c_pass'] ?? null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name_complete = $_POST['name_complete'] ?? null;
+    $gender        = $_POST['gender']        ?? null;
+    $date_birth    = $_POST['date_birth']    ?? null;
+    $maternal_name = $_POST['maternal_name'] ?? null;
+    $cpf           = $_POST['cpf']           ?? null;
+    $user_email    = $_POST['user_email']    ?? null;
+    $user_cell     = $_POST['user_cell']     ?? null;
+    $pass          = $_POST['pass']          ?? null;
+    $c_pass        = $_POST['c_pass']        ?? null;
 
-        if ($pass === $c_pass) {
-            $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO clients (name_complete, gender, date_birth, maternal_name, cpf, user_email, user_cell, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            if ($stmt = $conn->prepare($sql)) {
-                $stmt->bind_param("ssssssss", $name_complete, $gender, $date_birth, $maternal_name, $cpf, $user_email, $user_cell, $pass_hash);
-                if ($stmt->execute()) {
-                    echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = 'login.php';</script>";
-                } else {
-                    echo "<div class='error'>Erro ao cadastrar. Tente novamente.</div>";
-                }
-                $stmt->close();
+    if ($pass === $c_pass) {
+        $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO clients (name_complete, gender, date_birth, maternal_name, cpf, user_email, user_cell, pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        if ($stmt = $conn->prepare($sql)) {
+            $stmt->bind_param("ssssssss", $name_complete, $gender, $date_birth, $maternal_name, $cpf, $user_email, $user_cell, $pass_hash);
+            if ($stmt->execute()) {
+                echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = 'login.php';</script>";
+            } else {
+                echo "<div class='error'>Erro: " . $stmt->error . "</div>";
             }
-        } else {
-            echo "<div class='error'>As senhas não coincidem.</div>";
+            $stmt->close();
         }
-        $conn->close();
+    } else {
+        echo "<div class='error'>As senhas não coincidem.</div>";
     }
-    ?>
+    $conn->close();
+}
+?>
     <script type="module" src="./src/js/main.js"></script>
 </body>
 </html>
